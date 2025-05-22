@@ -1,0 +1,13 @@
+﻿{
+  "Group": "Discount requirements",
+  "FriendlyName": "Custom Discounts",
+  "SystemName": "DiscountRules.CustomDiscounts",
+  "Version": "1.00",
+  "SupportedVersions": [
+    "4.80"
+  ],
+  "Author": "Nizamuddien TI",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.DiscountRules.CustomDiscounts.dll",
+  "Description": "This plugin allows you to configure discounts for the customers who placed 3 or more orders"
+}
