@@ -108,4 +108,6 @@
       More details here: https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals#concurrent-garbage-collection-->
     <ConcurrentGarbageCollection>false</ConcurrentGarbageCollection>
   </PropertyGroup>
+
+  <Import Project="..\..\Presentation.Bamboo\Nop.Web.Bamboo\Nop.Web.Bamboo.projitems" Label="Shared" />
 </Project>

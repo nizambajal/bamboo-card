@@ -26,11 +26,11 @@ public class ViewLocationExpander : IViewLocationExpander
     {
         if (context.AreaName == "Admin")
         {
-            viewLocations = new[] { $"/Plugins/Nop.Plugin.DiscountRules.CustomDiscounts/Areas/Admin/Views/{context.ControllerName}/{context.ViewName}.cshtml" }.Concat(viewLocations);
+            viewLocations = new[] { $"/Plugins/DiscountRules.CustomDiscounts/Areas/Admin/Views/{context.ControllerName}/{context.ViewName}.cshtml" }.Concat(viewLocations);
         }
         else
         {
-            viewLocations = new[] { $"/Plugins/Nop.Plugin.DiscountRules.CustomDiscounts/Views/{context.ControllerName}/{context.ViewName}.cshtml" }.Concat(viewLocations);
+            viewLocations = new[] { $"/Plugins/DiscountRules.CustomDiscounts/Views/{context.ControllerName}/{context.ViewName}.cshtml" }.Concat(viewLocations);
         }
 
         return viewLocations;

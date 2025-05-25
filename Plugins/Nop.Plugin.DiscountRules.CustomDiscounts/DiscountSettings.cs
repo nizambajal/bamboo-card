@@ -18,6 +18,6 @@ namespace Nop.Plugin.DiscountRules.CustomDiscounts
         /// <summary>
         /// Gets or sets discount percentage
         /// </summary>
-        public double DiscountPercentage { get; set; }
+        public decimal DiscountPercentage { get; set; }
     }
 }

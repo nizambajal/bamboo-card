@@ -37,4 +37,6 @@
     <WCFMetadata Include="Connected Services" />
   </ItemGroup>
 
+  <Import Project="..\..\Libraries.Bamboo\Nop.Services.Bamboo\Nop.Services.Bamboo.projitems" Label="Shared" />
+
 </Project>

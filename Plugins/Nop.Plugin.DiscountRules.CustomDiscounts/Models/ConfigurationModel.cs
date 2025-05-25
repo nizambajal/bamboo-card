@@ -19,7 +19,7 @@ public record ConfigurationModel : BaseNopModel
     public bool Enabled_OverrideForStore { get; set; }
 
     [NopResourceDisplayName("Plugins.DiscountRules.CustomDiscounts.Fields.DiscountPercentage")]
-    public double DiscountPercentage { get; set; }
+    public decimal DiscountPercentage { get; set; }
     public bool DiscountPercentage_OverrideForStore { get; set; }
     #endregion
 }

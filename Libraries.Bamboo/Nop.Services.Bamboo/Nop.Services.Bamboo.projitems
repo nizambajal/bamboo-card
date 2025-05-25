@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>d11a4be9-1a30-4e92-829e-84a1cb3486ed</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Nop.Services</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Catalog\IProductAttributeService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Catalog\ProductAttributeService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Customers\CustomerService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Customers\ICustomerService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Orders\OrderProcessingService.cs" />
+  </ItemGroup>
+</Project>

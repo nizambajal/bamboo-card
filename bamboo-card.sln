@@ -75,6 +75,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nop.Plugin.Widgets.AccessiB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nop.Plugin.DiscountRules.CustomDiscounts", "Plugins\Nop.Plugin.DiscountRules.CustomDiscounts\Nop.Plugin.DiscountRules.CustomDiscounts.csproj", "{67551755-31F3-6CC5-1304-B09050167046}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Nop.Web.Bamboo", "Presentation.Bamboo\Nop.Web.Bamboo\Nop.Web.Bamboo.shproj", "{79AD42B8-F2BB-44E4-B076-40547B2FCE7C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation.Bamboo", "Presentation.Bamboo", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Nop.Services.Bamboo", "Libraries.Bamboo\Nop.Services.Bamboo\Nop.Services.Bamboo.shproj", "{D11A4BE9-1A30-4E92-829E-84A1CB3486ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries.Bamboo", "Libraries.Bamboo", "{8A6468DA-9A58-4405-88B3-DBA10E33F571}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Nop.Core.Bamboo", "Libraries.Bamboo\Nop.Core.Bamboo\Nop.Core.Bamboo.shproj", "{22C20474-E40A-460A-9455-420D136934EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -484,9 +494,20 @@ Global
 		{DA33F57C-2E56-4D63-B0D9-D87069D786B8} = {7881B112-7843-4542-B1F7-F99553FB9BB7}
 		{3BF04BB3-4BCB-0F3A-8230-EC1F27135D71} = {7881B112-7843-4542-B1F7-F99553FB9BB7}
 		{67551755-31F3-6CC5-1304-B09050167046} = {7881B112-7843-4542-B1F7-F99553FB9BB7}
+		{79AD42B8-F2BB-44E4-B076-40547B2FCE7C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{D11A4BE9-1A30-4E92-829E-84A1CB3486ED} = {8A6468DA-9A58-4405-88B3-DBA10E33F571}
+		{22C20474-E40A-460A-9455-420D136934EF} = {8A6468DA-9A58-4405-88B3-DBA10E33F571}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EE72A8B2-332A-4175-9319-6726D36E9D25}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Libraries.Bamboo\Nop.Services.Bamboo\Nop.Services.Bamboo.projitems*{210541ad-f659-47da-8763-16f36c5cd2f4}*SharedItemsImports = 5
+		Libraries.Bamboo\Nop.Core.Bamboo\Nop.Core.Bamboo.projitems*{22c20474-e40a-460a-9455-420d136934ef}*SharedItemsImports = 13
+		Presentation.Bamboo\Nop.Web.Bamboo\Nop.Web.Bamboo.projitems*{4f1f649c-1020-45be-a487-f416d9297ff3}*SharedItemsImports = 5
+		Libraries.Bamboo\Nop.Core.Bamboo\Nop.Core.Bamboo.projitems*{6bda8332-939f-45b7-a25e-7a797260ae59}*SharedItemsImports = 5
+		Presentation.Bamboo\Nop.Web.Bamboo\Nop.Web.Bamboo.projitems*{79ad42b8-f2bb-44e4-b076-40547b2fce7c}*SharedItemsImports = 13
+		Libraries.Bamboo\Nop.Services.Bamboo\Nop.Services.Bamboo.projitems*{d11a4be9-1a30-4e92-829e-84a1cb3486ed}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(NDepend) = preSolution
 		Project = ".\NopCommerce.ndproj"

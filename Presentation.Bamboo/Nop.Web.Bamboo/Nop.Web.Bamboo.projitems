@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>79ad42b8-f2bb-44e4-b076-40547b2fce7c</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Nop.Web</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Areas\Admin\Views\Overriden\Order\_OrderDetails.Info.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Areas\Admin\Views\Overriden\ProductAttribute\List.cshtml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Views\Overriden\Shared\Components\OrderSummary\Default.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Views\Overriden\ShoppingCart\_GiftMessage.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Areas\Admin\Factories\OverridenOrderModelFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Areas\Admin\Factories\ProductAttributeModelFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Areas\Admin\Models\Catalog\ProductAttributeSearchModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Areas\Admin\Models\Orders\OrderModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controllers\ShoppingCartController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Factories\OverridenShoppingCartModelFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\CustomNopStartup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\SharedViewLocationExpander.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Migrations\GiftMessageColumnSchemaMigration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Order\OrderDetailsModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Factories\OverridenOrderModelFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ShoppingCart\ShoppingCartModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Views\Overriden\Order\Details.cshtml" />
+  </ItemGroup>
+</Project>

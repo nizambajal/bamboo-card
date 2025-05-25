@@ -93,7 +93,7 @@ public class CustomDiscounts : BasePlugin, IMiscPlugin, IDiscountRequirementRule
 
         //return urlHelper.Action("Configure", "CustomDiscount",
         //    new { discountId = discountId, discountRequirementId = discountRequirementId }, _webHelper.GetCurrentRequestProtocol());
-        throw new NotImplementedException();
+        return "";
     }
 
     public override string GetConfigurationPageUrl()
@@ -113,7 +113,15 @@ public class CustomDiscounts : BasePlugin, IMiscPlugin, IDiscountRequirementRule
             ["Plugins.DiscountRules.CustomDiscounts.Fields.Enabled"] = "Enabled",
             ["Plugins.DiscountRules.CustomDiscounts.Fields.Enabled.Hint"] = "Enable/Disable the discounts",
             ["Plugins.DiscountRules.CustomDiscounts.Fields.DiscountPercentage"] = "Discount Percentage",
-            ["Plugins.DiscountRules.CustomDiscounts.Fields.DiscountPercentage.Hint"] = "Discount percentage"
+            ["Plugins.DiscountRules.CustomDiscounts.Fields.DiscountPercentage.Hint"] = "Discount percentage",
+            ["Admin.Catalog.ProductAttributes.List.SearchProductAttributeName"] = "Name",
+            ["Admin.Catalog.ProductAttributes.List.SearchProductAttributeName.Hint"] = "Search by Product Attribute Name",
+            ["ShoppingCart.Giftmessage.Label"] = "Enter gift message",
+            ["ShoppingCart.Giftmessage.Button"] = "Add gift message",
+            ["ShoppingCart.Giftmessage"] = "Gift Message",
+            ["ShoppingCart.Giftmessage.Tooltip"] = "Enter gift message",
+            ["ShoppingCart.Giftmessage.Saved"] = "The gift message was saved",
+            ["Order.GiftMessage"] = "Gift Message",
         });
 
         await base.InstallAsync();
@@ -135,6 +143,13 @@ public class CustomDiscounts : BasePlugin, IMiscPlugin, IDiscountRequirementRule
 
         //locales
         await _localizationService.DeleteLocaleResourcesAsync("Plugins.DiscountRules.CustomDiscounts");
+        await _localizationService.DeleteLocaleResourcesAsync("Admin.Catalog.ProductAttributes.List.SearchProductAttributeName");
+        await _localizationService.DeleteLocaleResourcesAsync("ShoppingCart.Giftmessage.Label");
+        await _localizationService.DeleteLocaleResourcesAsync("ShoppingCart.Giftmessage.Button");
+        await _localizationService.DeleteLocaleResourcesAsync("ShoppingCart.Giftmessage");
+        await _localizationService.DeleteLocaleResourcesAsync("ShoppingCart.Giftmessage.Tooltip");
+        await _localizationService.DeleteLocaleResourcesAsync("ShoppingCart.Giftmessage.Saved");
+        await _localizationService.DeleteLocaleResourcesAsync("Order.GiftMessage");
 
         await base.UninstallAsync();
     }

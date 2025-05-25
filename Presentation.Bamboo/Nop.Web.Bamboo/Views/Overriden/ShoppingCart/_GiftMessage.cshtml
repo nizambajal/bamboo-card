@@ -1,0 +1,26 @@
+﻿@model ShoppingCartModel
+<div class="giftmessage-box">
+    <div class="title">
+        <strong>@T("ShoppingCart.Giftmessage")</strong>
+    </div>
+    <div class="hint">@T("ShoppingCart.Giftmessage.Tooltip")</div>
+    <div class="coupon-code">
+        <input name="giftmessage" id="giftmessage" type="text" class="gift-card-coupon-code" aria-label="@T("ShoppingCart.Giftmessage.Label")" />
+
+        <button type="submit" name="applygiftmessage" id="applygiftmessage" class="button-2 apply-gift-card-coupon-code-button">@T("ShoppingCart.Giftmessage.Button")</button>
+    </div>
+@if (!string.IsNullOrEmpty(Model.GiftMessage))
+{
+    @Model.GiftMessage
+}
+</div>
+<script asp-location="Footer">
+    $(function() {
+        $('#giftmessage').on('keydown', function (event) {
+            if (event.keyCode == 13) {
+                $('#applygiftmessage').trigger("click");
+                return false;
+            }
+        });
+    });
+</script>

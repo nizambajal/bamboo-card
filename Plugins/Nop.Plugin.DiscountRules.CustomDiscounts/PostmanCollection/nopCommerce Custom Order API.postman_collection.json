@@ -1,0 +1,274 @@
+{
+	"info": {
+		"_postman_id": "9631297a-92f9-4a53-9f2a-e101be0f2a48",
+		"name": "nopCommerce Custom Order API",
+		"description": "Collection for testing the secure order retrieval API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17149542"
+	},
+	"item": [
+		{
+			"name": "Generate Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (pm.response.code === 200) {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    if (jsonData.token) {\r",
+							"        pm.environment.set(\"jwt_token\", jsonData.token);\r",
+							"        console.log(\"Token saved to environment.\");\r",
+							"    } else {\r",
+							"        console.error(\"No token found in response.\");\r",
+							"    }\r",
+							"} else {\r",
+							"    console.error(\"Token generation failed with status\", pm.response.code);\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@yourStore.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/token/generate-token",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"token",
+						"generate-token"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Generate Token response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@yourStore.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/token/generate-token",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"token",
+								"generate-token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "251"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 24 May 2025 06:57:11 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Content-Language",
+							"value": "en-US"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": ".Nop.Customer=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": ".Nop.Customer=9a5ff572-de78-46dc-bdc2-993abd4edd93; expires=Sun, 24 May 2026 06:57:08 GMT; path=/; secure; httponly"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHlvdXJTdG9yZS5jb20iLCJuYmYiOjE3NDgwNjk4MzEsImV4cCI6MTc0ODA3MzQzMSwiaWF0IjoxNzQ4MDY5ODMxLCJpc3MiOiJiYW1ib28tY2FyZCIsImF1ZCI6InBvc3RtYW4ifQ.FETzz54msqORKe_T16aUOh0FI6wwHgl_SpFboZ-qFTQ\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Order Details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/order/order-details?email={{email}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"order",
+						"order-details"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"description": "customer email"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Order details response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/order/order-details?email={{email}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"order",
+								"order-details"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "{{email}}",
+									"description": "customer email"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "304"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 24 May 2025 07:20:09 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Content-Language",
+							"value": "en-US"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": ".Nop.Customer=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": ".Nop.Customer=9a5ff572-de78-46dc-bdc2-993abd4edd93; expires=Sun, 24 May 2026 07:20:09 GMT; path=/; secure; httponly"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"orderId\": 9,\n        \"totalAmount\": 1183.5,\n        \"orderDate\": \"2025-05-24T07:20:02.518\"\n    },\n    {\n        \"orderId\": 8,\n        \"totalAmount\": 3600,\n        \"orderDate\": \"2025-05-24T07:19:01.821\"\n    },\n    {\n        \"orderId\": 7,\n        \"totalAmount\": 245,\n        \"orderDate\": \"2025-05-24T07:17:59.193\"\n    },\n    {\n        \"orderId\": 6,\n        \"totalAmount\": 1315,\n        \"orderDate\": \"2025-05-24T07:16:28.558\"\n    }\n]"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{jwt_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "email",
+			"value": "admin@yourStore.com"
+		},
+		{
+			"key": "jwt_token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHlvdXJTdG9yZS5jb20iLCJuYmYiOjE3NDgwNjc4MjAsImV4cCI6MTc0ODA3MTQyMCwiaWF0IjoxNzQ4MDY3ODIwLCJpc3MiOiJiYW1ib28tY2FyZCIsImF1ZCI6InBvc3RtYW4ifQ.3myBleyNWuYMRLgOgYlSivEtPKeDBNe7GrnOC-YeHJg",
+			"disabled": true
+		}
+	]
+}
