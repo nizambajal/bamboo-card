@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine AS build
 
 WORKDIR /src                                                                    
-COPY . ./
+COPY ./src ./
 
 # build solution   
 RUN dotnet build bamboo-card.sln --no-incremental -c Release
@@ -52,4 +52,4 @@ COPY --from=build /app/published .
 ENV ASPNETCORE_URLS=http://+:80
 EXPOSE 80
                             
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT "/entrypoint.sh"
