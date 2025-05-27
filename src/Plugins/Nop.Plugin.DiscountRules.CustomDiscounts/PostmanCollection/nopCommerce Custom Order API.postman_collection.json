@@ -117,7 +117,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHlvdXJTdG9yZS5jb20iLCJuYmYiOjE3NDgwNjk4MzEsImV4cCI6MTc0ODA3MzQzMSwiaWF0IjoxNzQ4MDY5ODMxLCJpc3MiOiJiYW1ib28tY2FyZCIsImF1ZCI6InBvc3RtYW4ifQ.FETzz54msqORKe_T16aUOh0FI6wwHgl_SpFboZ-qFTQ\"\n}"
+					"body": "{\n    \"token\": \"\"\n}"
 				}
 			]
 		},
@@ -267,7 +267,7 @@
 		},
 		{
 			"key": "jwt_token",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHlvdXJTdG9yZS5jb20iLCJuYmYiOjE3NDgwNjc4MjAsImV4cCI6MTc0ODA3MTQyMCwiaWF0IjoxNzQ4MDY3ODIwLCJpc3MiOiJiYW1ib28tY2FyZCIsImF1ZCI6InBvc3RtYW4ifQ.3myBleyNWuYMRLgOgYlSivEtPKeDBNe7GrnOC-YeHJg",
+			"value": "",
 			"disabled": true
 		}
 	]
