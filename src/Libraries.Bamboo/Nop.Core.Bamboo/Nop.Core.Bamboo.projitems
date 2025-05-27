@@ -11,6 +11,5 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Domain\Customers\NopCustomerDefaults.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Domain\Orders\Order.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Domain\Orders\ShoppingCartItem.cs" />
   </ItemGroup>
 </Project>

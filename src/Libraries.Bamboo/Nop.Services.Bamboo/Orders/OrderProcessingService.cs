@@ -1,18 +1,13 @@
-﻿using System.Globalization;
-using Nop.Core;
+﻿using Nop.Core;
 using Nop.Core.Caching;
-using Nop.Core.Domain.Catalog;
 using Nop.Core.Domain.Common;
 using Nop.Core.Domain.Customers;
 using Nop.Core.Domain.Directory;
-using Nop.Core.Domain.Discounts;
 using Nop.Core.Domain.Localization;
-using Nop.Core.Domain.Logging;
 using Nop.Core.Domain.Orders;
 using Nop.Core.Domain.Payments;
 using Nop.Core.Domain.Shipping;
 using Nop.Core.Domain.Tax;
-using Nop.Core.Domain.Vendors;
 using Nop.Core.Events;
 using Nop.Data;
 using Nop.Services.Affiliates;
@@ -40,53 +35,6 @@ public partial class OverridenOrderProcessingService : OrderProcessingService
 {
     #region Fields
 
-    protected readonly CurrencySettings _currencySettings;
-    protected readonly IAddressService _addressService;
-    protected readonly IAffiliateService _affiliateService;
-    protected readonly ICheckoutAttributeFormatter _checkoutAttributeFormatter;
-    protected readonly ICountryService _countryService;
-    protected readonly ICurrencyService _currencyService;
-    protected readonly ICustomerActivityService _customerActivityService;
-    protected readonly ICustomerService _customerService;
-    protected readonly ICustomNumberFormatter _customNumberFormatter;
-    protected readonly IDiscountService _discountService;
-    protected readonly IEncryptionService _encryptionService;
-    protected readonly IEventPublisher _eventPublisher;
-    protected readonly IGenericAttributeService _genericAttributeService;
-    protected readonly IGiftCardService _giftCardService;
-    protected readonly ILanguageService _languageService;
-    protected readonly ILocalizationService _localizationService;
-    protected readonly ILogger _logger;
-    protected readonly IOrderService _orderService;
-    protected readonly IOrderTotalCalculationService _orderTotalCalculationService;
-    protected readonly IPaymentPluginManager _paymentPluginManager;
-    protected readonly IPaymentService _paymentService;
-    protected readonly IPdfService _pdfService;
-    protected readonly IPriceCalculationService _priceCalculationService;
-    protected readonly IPriceFormatter _priceFormatter;
-    protected readonly IProductAttributeFormatter _productAttributeFormatter;
-    protected readonly IProductAttributeParser _productAttributeParser;
-    protected readonly IProductService _productService;
-    protected readonly IReturnRequestService _returnRequestService;
-    protected readonly IRewardPointService _rewardPointService;
-    protected readonly IShipmentService _shipmentService;
-    protected readonly IShippingService _shippingService;
-    protected readonly IShoppingCartService _shoppingCartService;
-    protected readonly IStateProvinceService _stateProvinceService;
-    protected readonly IStaticCacheManager _staticCacheManager;
-    protected readonly IStoreMappingService _storeMappingService;
-    protected readonly IStoreService _storeService;
-    protected readonly ITaxService _taxService;
-    protected readonly IVendorService _vendorService;
-    protected readonly IWebHelper _webHelper;
-    protected readonly IWorkContext _workContext;
-    protected readonly IWorkflowMessageService _workflowMessageService;
-    protected readonly LocalizationSettings _localizationSettings;
-    protected readonly OrderSettings _orderSettings;
-    protected readonly PaymentSettings _paymentSettings;
-    protected readonly RewardPointsSettings _rewardPointsSettings;
-    protected readonly ShippingSettings _shippingSettings;
-    protected readonly TaxSettings _taxSettings;
     protected readonly IRepository<GenericAttribute> _genericAttributeRepository;
 
     #endregion
@@ -188,53 +136,6 @@ public partial class OverridenOrderProcessingService : OrderProcessingService
             shippingSettings,
             taxSettings)
     {
-        _currencySettings = currencySettings;
-        _addressService = addressService;
-        _affiliateService = affiliateService;
-        _checkoutAttributeFormatter = checkoutAttributeFormatter;
-        _countryService = countryService;
-        _currencyService = currencyService;
-        _customerActivityService = customerActivityService;
-        _customerService = customerService;
-        _customNumberFormatter = customNumberFormatter;
-        _discountService = discountService;
-        _encryptionService = encryptionService;
-        _eventPublisher = eventPublisher;
-        _genericAttributeService = genericAttributeService;
-        _giftCardService = giftCardService;
-        _languageService = languageService;
-        _localizationService = localizationService;
-        _logger = logger;
-        _orderService = orderService;
-        _orderTotalCalculationService = orderTotalCalculationService;
-        _paymentPluginManager = paymentPluginManager;
-        _paymentService = paymentService;
-        _pdfService = pdfService;
-        _priceCalculationService = priceCalculationService;
-        _priceFormatter = priceFormatter;
-        _productAttributeFormatter = productAttributeFormatter;
-        _productAttributeParser = productAttributeParser;
-        _productService = productService;
-        _returnRequestService = returnRequestService;
-        _rewardPointService = rewardPointService;
-        _shipmentService = shipmentService;
-        _shippingService = shippingService;
-        _shoppingCartService = shoppingCartService;
-        _stateProvinceService = stateProvinceService;
-        _staticCacheManager = staticCacheManager;
-        _storeMappingService = storeMappingService;
-        _storeService = storeService;
-        _taxService = taxService;
-        _vendorService = vendorService;
-        _webHelper = webHelper;
-        _workContext = workContext;
-        _workflowMessageService = workflowMessageService;
-        _localizationSettings = localizationSettings;
-        _orderSettings = orderSettings;
-        _paymentSettings = paymentSettings;
-        _rewardPointsSettings = rewardPointsSettings;
-        _shippingSettings = shippingSettings;
-        _taxSettings = taxSettings;
         _genericAttributeRepository = genericAttributeRepository;
     }
 
@@ -340,12 +241,6 @@ public partial class OverridenOrderProcessingService : OrderProcessingService
         await _orderService.UpdateOrderAsync(order);
 
         // gift message must be removed from ga.
-        //var attribute = from ga in _genericAttributeRepository.Table
-        //                where ga.KeyGroup.Equals(nameof(Customer)) && ga.Key.Equals(NopCustomerDefaults.GiftMessageAttribute) && ga.EntityId == details.Customer.Id
-        //                select ga;
-
-        
-
         await _genericAttributeService.DeleteAttributeAsync(attribute);
 
         //reward points history

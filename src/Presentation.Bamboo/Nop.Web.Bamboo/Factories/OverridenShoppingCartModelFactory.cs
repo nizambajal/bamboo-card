@@ -1,18 +1,14 @@
-﻿using System.Globalization;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Nop.Core;
+﻿using Nop.Core;
 using Nop.Core.Caching;
 using Nop.Core.Domain.Catalog;
 using Nop.Core.Domain.Common;
 using Nop.Core.Domain.Customers;
-using Nop.Core.Domain.Directory;
 using Nop.Core.Domain.Media;
 using Nop.Core.Domain.Orders;
 using Nop.Core.Domain.Security;
 using Nop.Core.Domain.Shipping;
 using Nop.Core.Domain.Tax;
 using Nop.Core.Domain.Vendors;
-using Nop.Core.Http.Extensions;
 using Nop.Services.Attributes;
 using Nop.Services.Catalog;
 using Nop.Services.Common;
@@ -30,9 +26,6 @@ using Nop.Services.Shipping;
 using Nop.Services.Stores;
 using Nop.Services.Tax;
 using Nop.Services.Vendors;
-using Nop.Web.Infrastructure.Cache;
-using Nop.Web.Models.Common;
-using Nop.Web.Models.Media;
 using Nop.Web.Models.ShoppingCart;
 
 namespace Nop.Web.Factories;
@@ -42,60 +35,6 @@ namespace Nop.Web.Factories;
 /// </summary>
 public partial class OverridenShoppingCartModelFactory : ShoppingCartModelFactory
 {
-    #region Fields
-
-    protected readonly AddressSettings _addressSettings;
-    protected readonly CaptchaSettings _captchaSettings;
-    protected readonly CatalogSettings _catalogSettings;
-    protected readonly CommonSettings _commonSettings;
-    protected readonly CustomerSettings _customerSettings;
-    protected readonly IAddressModelFactory _addressModelFactory;
-    protected readonly IAddressService _addressService;
-    protected readonly IAttributeParser<CheckoutAttribute, CheckoutAttributeValue> _checkoutAttributeParser;
-    protected readonly IAttributeService<CheckoutAttribute, CheckoutAttributeValue> _checkoutAttributeService;
-    protected readonly ICheckoutAttributeFormatter _checkoutAttributeFormatter;
-    protected readonly ICountryService _countryService;
-    protected readonly ICurrencyService _currencyService;
-    protected readonly ICustomerService _customerService;
-    protected readonly IDateTimeHelper _dateTimeHelper;
-    protected readonly IDiscountService _discountService;
-    protected readonly IDownloadService _downloadService;
-    protected readonly IGenericAttributeService _genericAttributeService;
-    protected readonly IGiftCardService _giftCardService;
-    protected readonly IHttpContextAccessor _httpContextAccessor;
-    protected readonly ILocalizationService _localizationService;
-    protected readonly IOrderProcessingService _orderProcessingService;
-    protected readonly IOrderTotalCalculationService _orderTotalCalculationService;
-    protected readonly IPaymentPluginManager _paymentPluginManager;
-    protected readonly IPaymentService _paymentService;
-    protected readonly IPermissionService _permissionService;
-    protected readonly IPictureService _pictureService;
-    protected readonly IPriceFormatter _priceFormatter;
-    protected readonly IProductAttributeFormatter _productAttributeFormatter;
-    protected readonly IProductService _productService;
-    protected readonly IShippingService _shippingService;
-    protected readonly IShoppingCartService _shoppingCartService;
-    protected readonly IShortTermCacheManager _shortTermCacheManager;
-    protected readonly IStateProvinceService _stateProvinceService;
-    protected readonly IStaticCacheManager _staticCacheManager;
-    protected readonly IStoreContext _storeContext;
-    protected readonly IStoreMappingService _storeMappingService;
-    protected readonly ITaxService _taxService;
-    protected readonly IUrlRecordService _urlRecordService;
-    protected readonly IVendorService _vendorService;
-    protected readonly IWebHelper _webHelper;
-    protected readonly IWorkContext _workContext;
-    protected readonly MediaSettings _mediaSettings;
-    protected readonly OrderSettings _orderSettings;
-    protected readonly RewardPointsSettings _rewardPointsSettings;
-    protected readonly ShippingSettings _shippingSettings;
-    protected readonly ShoppingCartSettings _shoppingCartSettings;
-    protected readonly TaxSettings _taxSettings;
-    protected readonly VendorSettings _vendorSettings;
-    private static readonly char[] _separator = [','];
-
-    #endregion
-
     #region Ctor
 
     public OverridenShoppingCartModelFactory(AddressSettings addressSettings,
@@ -194,54 +133,6 @@ public partial class OverridenShoppingCartModelFactory : ShoppingCartModelFactor
             taxSettings,
             vendorSettings)
     {
-        _addressSettings = addressSettings;
-        _addressService = addressService;
-        _captchaSettings = captchaSettings;
-        _catalogSettings = catalogSettings;
-        _commonSettings = commonSettings;
-        _customerSettings = customerSettings;
-        _addressModelFactory = addressModelFactory;
-        _checkoutAttributeParser = checkoutAttributeParser;
-        _checkoutAttributeService = checkoutAttributeService;
-        _checkoutAttributeFormatter = checkoutAttributeFormatter;
-        _countryService = countryService;
-        _currencyService = currencyService;
-        _customerService = customerService;
-        _dateTimeHelper = dateTimeHelper;
-        _discountService = discountService;
-        _downloadService = downloadService;
-        _genericAttributeService = genericAttributeService;
-        _giftCardService = giftCardService;
-        _httpContextAccessor = httpContextAccessor;
-        _localizationService = localizationService;
-        _orderProcessingService = orderProcessingService;
-        _orderTotalCalculationService = orderTotalCalculationService;
-        _paymentPluginManager = paymentPluginManager;
-        _paymentService = paymentService;
-        _permissionService = permissionService;
-        _pictureService = pictureService;
-        _priceFormatter = priceFormatter;
-        _productAttributeFormatter = productAttributeFormatter;
-        _productService = productService;
-        _shippingService = shippingService;
-        _shoppingCartService = shoppingCartService;
-        _shortTermCacheManager = shortTermCacheManager;
-        _stateProvinceService = stateProvinceService;
-        _staticCacheManager = staticCacheManager;
-        _storeContext = storeContext;
-        _storeMappingService = storeMappingService;
-        _taxService = taxService;
-        _urlRecordService = urlRecordService;
-        _vendorService = vendorService;
-        _webHelper = webHelper;
-        _workContext = workContext;
-        _mediaSettings = mediaSettings;
-        _orderSettings = orderSettings;
-        _rewardPointsSettings = rewardPointsSettings;
-        _shippingSettings = shippingSettings;
-        _shoppingCartSettings = shoppingCartSettings;
-        _taxSettings = taxSettings;
-        _vendorSettings = vendorSettings;
     }
 
     #endregion

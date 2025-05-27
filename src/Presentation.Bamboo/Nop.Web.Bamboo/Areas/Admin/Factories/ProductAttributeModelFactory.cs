@@ -1,5 +1,4 @@
-﻿using Nop.Core.Domain.Catalog;
-using Nop.Services.Catalog;
+﻿using Nop.Services.Catalog;
 using Nop.Services.Localization;
 using Nop.Web.Areas.Admin.Infrastructure.Mapper.Extensions;
 using Nop.Web.Areas.Admin.Models.Catalog;
@@ -13,15 +12,6 @@ namespace Nop.Web.Areas.Admin.Factories;
 /// </summary>
 public partial class OverridenProductAttributeModelFactory : ProductAttributeModelFactory
 {
-    //#region Fields
-
-    //protected readonly ILocalizationService _localizationService;
-    //protected readonly ILocalizedModelFactory _localizedModelFactory;
-    //protected readonly IProductAttributeService _productAttributeService;
-    //protected readonly IProductService _productService;
-
-    //#endregion
-
     #region Ctor
 
     public OverridenProductAttributeModelFactory(ILocalizationService localizationService,
@@ -32,10 +22,6 @@ public partial class OverridenProductAttributeModelFactory : ProductAttributeMod
             productAttributeService, 
             productService)
     {
-        //_localizationService = localizationService;
-        //_localizedModelFactory = localizedModelFactory;
-        //_productAttributeService = productAttributeService;
-        //_productService = productService;
     }
 
     #endregion

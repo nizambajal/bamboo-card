@@ -89,10 +89,6 @@ public class CustomDiscounts : BasePlugin, IMiscPlugin, IDiscountRequirementRule
     /// <returns>URL</returns>
     public string GetConfigurationUrl(int discountId, int? discountRequirementId)
     {
-        //var urlHelper = _urlHelperFactory.GetUrlHelper(_actionContextAccessor.ActionContext);
-
-        //return urlHelper.Action("Configure", "CustomDiscount",
-        //    new { discountId = discountId, discountRequirementId = discountRequirementId }, _webHelper.GetCurrentRequestProtocol());
         return "";
     }
 

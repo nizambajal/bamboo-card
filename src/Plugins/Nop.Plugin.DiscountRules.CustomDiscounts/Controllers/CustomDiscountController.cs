@@ -84,39 +84,6 @@ namespace Nop.Plugin.DiscountRules.CustomDiscounts.Controllers
             if (storeId > 0)
                 model.DiscountPercentage_OverrideForStore = await _settingService.SettingExistsAsync(discountSettings, settings => settings.DiscountPercentage, storeId);
 
-            ////load the discount
-            //var discount = await _discountService.GetDiscountByIdAsync(discountId)
-            //               ?? throw new ArgumentException("Discount could not be loaded");
-
-            ////check whether the discount requirement exists
-            //if (discountRequirementId.HasValue && await _discountService.GetDiscountRequirementByIdAsync(discountRequirementId.Value) is null)
-            //    return Content("Failed to load requirement.");
-
-            ////try to get previously saved restricted customer role identifier
-            //var restrictedRoleId = await _settingService.GetSettingByKeyAsync<int>(string.Format(DiscountRequirementDefaults.SettingsKey, discountRequirementId ?? 0));
-
-            //var model = new RequirementModel
-            //{
-            //    RequirementId = discountRequirementId ?? 0,
-            //    DiscountId = discountId,
-            //    CustomerRoleId = restrictedRoleId,
-            //    //set available customer roles
-            //    AvailableCustomerRoles = (await _customerService.GetAllCustomerRolesAsync(true)).Select(role => new SelectListItem
-            //    {
-            //        Text = role.Name,
-            //        Value = role.Id.ToString(),
-            //        Selected = role.Id == restrictedRoleId
-            //    }).ToList()
-            //};
-            //model.AvailableCustomerRoles.Insert(0, new SelectListItem
-            //{
-            //    Text = await _localizationService.GetResourceAsync("Plugins.DiscountRules.CustomerRoles.Fields.CustomerRole.Select"),
-            //    Value = "0"
-            //});
-
-            ////set the HTML field prefix
-            //ViewData.TemplateInfo.HtmlFieldPrefix = string.Format(DiscountRequirementDefaults.HtmlFieldPrefix, discountRequirementId ?? 0);
-
             return View("~/Plugins/DiscountRules.CustomDiscounts/Views/Configure.cshtml", model);
         }
 
@@ -140,36 +107,6 @@ namespace Nop.Plugin.DiscountRules.CustomDiscounts.Controllers
             }
 
             return await Configure();
-
-            //if (ModelState.IsValid)
-            //{
-            //    //load the discount
-            //    var discount = await _discountService.GetDiscountByIdAsync(model.DiscountId);
-            //    if (discount == null)
-            //        return NotFound(new { Errors = new[] { "Discount could not be loaded" } });
-
-            //    //get the discount requirement
-            //    var discountRequirement = await _discountService.GetDiscountRequirementByIdAsync(model.RequirementId);
-
-            //    //the discount requirement does not exist, so create a new one
-            //    if (discountRequirement == null)
-            //    {
-            //        discountRequirement = new DiscountRequirement
-            //        {
-            //            DiscountId = discount.Id,
-            //            DiscountRequirementRuleSystemName = DiscountRequirementDefaults.SystemName
-            //        };
-
-            //        await _discountService.InsertDiscountRequirementAsync(discountRequirement);
-            //    }
-
-            //    //save restricted customer role identifier
-            //    await _settingService.SetSettingAsync(string.Format(DiscountRequirementDefaults.SettingsKey, discountRequirement.Id), model.CustomerRoleId);
-
-            //    return Ok(new { NewRequirementId = discountRequirement.Id });
-            //}
-
-            //return Ok(new { Errors = GetErrorsFromModelState(ModelState) });
         }
 
         #endregion

@@ -37,37 +37,6 @@ public partial class CustomerService
     {
         ArgumentNullException.ThrowIfNull(customer);
 
-        //var result = string.Empty;
-        //try
-        //{
-        //    var existingGiftMessage = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.GiftMessageAttribute);
-
-        //    giftMessage = giftMessage?.Trim();
-
-        //    var xmlDoc = new XmlDocument();
-        //    if (string.IsNullOrEmpty(existingGiftMessage))
-        //    {
-        //        var element1 = xmlDoc.CreateElement("GiftMessages");
-        //        xmlDoc.AppendChild(element1);
-        //    }
-        //    else
-        //        xmlDoc.LoadXml(existingGiftMessage);
-
-        //    var rootElement = (XmlElement)xmlDoc.SelectSingleNode(@"//GiftMessages");
-
-        //    // Directly add the GiftMessage attribute on the root element
-        //    if (!string.IsNullOrEmpty(giftMessage))
-        //    {
-        //        rootElement.SetAttribute("GiftMessage", giftMessage);
-        //    }
-
-        //    result = xmlDoc.OuterXml;
-        //}
-        //catch
-        //{
-        //    // ignored
-        //}
-
         // Apply the new value
         await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.GiftMessageAttribute, giftMessage);
     }

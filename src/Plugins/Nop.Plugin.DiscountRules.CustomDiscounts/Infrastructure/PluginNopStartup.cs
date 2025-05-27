@@ -51,8 +51,6 @@ public class PluginNopStartup : INopStartup
         });
 
         //register services and interfaces
-        //services.AddScoped<OverridenShoppingCartModelFactory, IShoppingCartModelFactory>();
-        //services.AddScoped<IShoppingCartModelFactory, OverridenShoppingCartModelFactory>();
         services.AddScoped<IOrderTotalCalculationService, OverridenOrderTotalCalculationService>();
         services.AddScoped<IOrderApiService, OrderApiService>();
         services.AddScoped<JwtAuthHelper>();

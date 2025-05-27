@@ -1,25 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
+﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Nop.Plugin.DiscountRules.CustomDiscounts.Helpers
 {
     public class JwtAuthHelper
     {
-        //private readonly IConfiguration _configuration;
-
-        //public JwtAuthHelper(IConfiguration configuration)
-        public JwtAuthHelper()
-        {
-            //_configuration = configuration;
-        }
-
         public string GenerateToken(string email)
         {
             var key = Encoding.UTF8.GetBytes("BambooCardSuperSecureSecretKey!@#123456");

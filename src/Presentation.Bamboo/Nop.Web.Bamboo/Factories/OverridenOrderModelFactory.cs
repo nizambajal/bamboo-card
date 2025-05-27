@@ -21,10 +21,7 @@ using Nop.Services.Payments;
 using Nop.Services.Seo;
 using Nop.Services.Shipping;
 using Nop.Services.Vendors;
-using Nop.Web.Infrastructure;
-using Nop.Web.Infrastructure.Cache;
 using Nop.Web.Models.Common;
-using Nop.Web.Models.Media;
 using Nop.Web.Models.Order;
 
 namespace Nop.Web.Factories;
@@ -34,46 +31,6 @@ namespace Nop.Web.Factories;
 /// </summary>
 public partial class OverridenOrderModelFactory : OrderModelFactory
 {
-    #region Fields
-
-    protected readonly AddressSettings _addressSettings;
-    protected readonly CatalogSettings _catalogSettings;
-    protected readonly IAddressModelFactory _addressModelFactory;
-    protected readonly IAddressService _addressService;
-    protected readonly ICountryService _countryService;
-    protected readonly ICurrencyService _currencyService;
-    protected readonly ICustomerService _customerService;
-    protected readonly IDateTimeHelper _dateTimeHelper;
-    protected readonly IGiftCardService _giftCardService;
-    protected readonly ILocalizationService _localizationService;
-    protected readonly IOrderProcessingService _orderProcessingService;
-    protected readonly IOrderService _orderService;
-    protected readonly IOrderTotalCalculationService _orderTotalCalculationService;
-    protected readonly IPaymentPluginManager _paymentPluginManager;
-    protected readonly IPaymentService _paymentService;
-    protected readonly IPictureService _pictureService;
-    protected readonly IPriceFormatter _priceFormatter;
-    protected readonly IProductService _productService;
-    protected readonly IRewardPointService _rewardPointService;
-    protected readonly IShipmentService _shipmentService;
-    protected readonly IShortTermCacheManager _shortTermCacheManager;
-    protected readonly IStateProvinceService _stateProvinceService;
-    protected readonly IStaticCacheManager _staticCacheManager;
-    protected readonly IStoreContext _storeContext;
-    protected readonly IUrlRecordService _urlRecordService;
-    protected readonly IVendorService _vendorService;
-    protected readonly IWebHelper _webHelper;
-    protected readonly IWorkContext _workContext;
-    protected readonly MediaSettings _mediaSettings;
-    protected readonly OrderSettings _orderSettings;
-    protected readonly PdfSettings _pdfSettings;
-    protected readonly RewardPointsSettings _rewardPointsSettings;
-    protected readonly ShippingSettings _shippingSettings;
-    protected readonly TaxSettings _taxSettings;
-    protected readonly VendorSettings _vendorSettings;
-
-    #endregion
-
     #region Ctor
 
     public OverridenOrderModelFactory(AddressSettings addressSettings,
@@ -146,41 +103,6 @@ public partial class OverridenOrderModelFactory : OrderModelFactory
             taxSettings,
             vendorSettings)
     {
-        _addressSettings = addressSettings;
-        _catalogSettings = catalogSettings;
-        _addressModelFactory = addressModelFactory;
-        _addressService = addressService;
-        _countryService = countryService;
-        _currencyService = currencyService;
-        _customerService = customerService;
-        _dateTimeHelper = dateTimeHelper;
-        _giftCardService = giftCardService;
-        _localizationService = localizationService;
-        _orderProcessingService = orderProcessingService;
-        _orderService = orderService;
-        _orderTotalCalculationService = orderTotalCalculationService;
-        _paymentPluginManager = paymentPluginManager;
-        _paymentService = paymentService;
-        _pictureService = pictureService;
-        _priceFormatter = priceFormatter;
-        _productService = productService;
-        _rewardPointService = rewardPointService;
-        _shipmentService = shipmentService;
-        _shortTermCacheManager = shortTermCacheManager;
-        _stateProvinceService = stateProvinceService;
-        _staticCacheManager = staticCacheManager;
-        _storeContext = storeContext;
-        _urlRecordService = urlRecordService;
-        _vendorService = vendorService;
-        _webHelper = webHelper;
-        _workContext = workContext;
-        _mediaSettings = mediaSettings;
-        _orderSettings = orderSettings;
-        _pdfSettings = pdfSettings;
-        _rewardPointsSettings = rewardPointsSettings;
-        _shippingSettings = shippingSettings;
-        _taxSettings = taxSettings;
-        _vendorSettings = vendorSettings;
     }
 
     #endregion
